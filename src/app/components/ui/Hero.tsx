@@ -100,17 +100,17 @@ export default function Hero() {
               </motion.div>
               <div className="flex space-x-4">
                 <motion.div whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.95 }}>
-                  <Button variant="outline" size="lg" className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white">
+                  <Button variant="outline" size="lg" className="border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white" href="https://github.com/mrguzmanc">
                     <Github className="h-4 w-4" />
                   </Button>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.1, rotate: -5 }} whileTap={{ scale: 0.95 }}>
-                  <Button variant="outline" size="lg" className="border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white">
+                  <Button variant="outline" size="lg" className="border-pink-400 text-pink-400 hover:bg-pink-400 hover:text-white" href="https://www.linkedin.com/in/marcos-r-guzman-c/">
                     <Linkedin className="h-4 w-4" />
                   </Button>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.1, rotate: 5 }} whileTap={{ scale: 0.95 }}>
-                  <Button variant="outline" size="lg" className="border-red-400 text-red-400 hover:bg-red-400 hover:text-white">
+                  <Button variant="outline" size="lg" className="border-red-400 text-red-400 hover:bg-red-400 hover:text-white" href="mailto:marcosgc1806@gmail.com">
                     <Mail className="h-4 w-4" />
                   </Button>
                 </motion.div>
