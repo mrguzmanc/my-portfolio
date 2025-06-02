@@ -1,10 +1,21 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <nav className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm sticky top-0 z-20 border-b border-gray-200/30 dark:border-gray-700/30">
@@ -37,14 +48,59 @@ export default function Navbar() {
               )}
             </button>
             <div className="sm:hidden relative">
-              <button className="p-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50">
+              <button 
+                onClick={toggleMobileMenu}
+                className="p-2 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-800/50 transition-colors"
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" />
+                  {isMobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" />
+                  )}
                 </svg>
               </button>
             </div>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="sm:hidden border-t border-gray-200/30 dark:border-gray-700/30 overflow-hidden"
+            >
+              <div className="py-4 space-y-3">
+                <Link 
+                  href="#about" 
+                  className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors"
+                  onClick={closeMobileMenu}
+                >
+                  About
+                </Link>
+                <Link 
+                  href="#projects" 
+                  className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors"
+                  onClick={closeMobileMenu}
+                >
+                  Projects
+                </Link>
+                <Link 
+                  href="#contact" 
+                  className="block px-4 py-2 text-gray-600 dark:text-gray-300 hover:text-purple-500 dark:hover:text-purple-400 hover:bg-gray-100/50 dark:hover:bg-gray-800/50 rounded-lg transition-colors"
+                  onClick={closeMobileMenu}
+                >
+                  Contact
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
