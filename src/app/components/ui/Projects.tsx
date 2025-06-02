@@ -26,10 +26,13 @@ const projects: Project[] = [
     images: [
       "/projects/cicada/cicada1.png",
       "/projects/cicada/cicada2.png",
-      "/projects/cicada/cicada3.png"
+      "/projects/cicada/cicada3.png",
+      "/projects/cicada/cicada4.png",
+      "/projects/cicada/cicada5.png",
+      "/projects/cicada/cicada6.png",
     ],
-    techStack: ["NextJS", "TypeScript", "MongoDB", "Express", "NodeJS", "TailwindCSS"],
-    liveUrl: "https://cicada-dashboard.vercel.app",
+    techStack: ["NextJS", "TypeScript", "MongoDB", "React Native", "Express", "NodeJS", "TailwindCSS", "Python", "GCP"],
+    liveUrl: "https://dev-app.cicadahome.co/",
     repoUrl: "https://github.com/username/cicada-dashboard",
   },
   {
