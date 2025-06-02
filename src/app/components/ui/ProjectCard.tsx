@@ -13,15 +13,17 @@ export type Project = {
 
 type ProjectCardProps = {
   project: Project;
+  onImageClick?: (images: string[], currentIndex: number, alt: string) => void;
 };
 
-export default function ProjectCard({ project }: ProjectCardProps) {
+export default function ProjectCard({ project, onImageClick }: ProjectCardProps) {
   return (
     <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-[480px] flex flex-col">
       <ImageCarousel 
         images={project.images}
         alt={project.title}
         className="flex-shrink-0"
+        onImageClick={onImageClick}
       />
       <div className="p-6 flex flex-col flex-grow">
         <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2 line-clamp-2">{project.title}</h2>
