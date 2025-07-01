@@ -26,11 +26,10 @@ export default function Contact() {
     setIsSubmitting(true);
   
     try {
-      const response = await fetch("https://formsubmit.co/f0615b0320baac75cd5a2398f17f5e07", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
         body: JSON.stringify(formState),
       });
@@ -118,8 +117,6 @@ export default function Contact() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Name Field */}
-              <input type="hidden" name="_formsubmit_id" value="f0615b0320baac75cd5a2398f17f5e07" />
-
               <div>
                 <div className="flex items-center mb-2">
                   <span className="text-pink-500">guest@portfolio:~$</span>
