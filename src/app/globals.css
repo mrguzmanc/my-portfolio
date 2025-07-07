@@ -27,3 +27,28 @@ code, pre {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 }
+
+@layer utilities {
+  .scrollbar-minimal {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(147, 51, 234, 0.3) transparent;
+  }
+  
+  .scrollbar-minimal::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .scrollbar-minimal::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-minimal::-webkit-scrollbar-thumb {
+    background: rgba(147, 51, 234, 0.2);
+    border-radius: 2px;
+    transition: background 0.2s ease;
+  }
+  
+  .scrollbar-minimal::-webkit-scrollbar-thumb:hover {
+    background: rgba(147, 51, 234, 0.4);
+  }
+}
