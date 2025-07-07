@@ -26,14 +26,25 @@ export default function ProjectCard({ project, onImageClick }: ProjectCardProps)
         onImageClick={onImageClick}
       />
       <div className="p-6 flex flex-col flex-grow">
-        <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2 line-clamp-2">{project.title}</h2>
-        <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed line-clamp-3 flex-grow">{project.description}</p>
+        <h2 className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2 line-clamp-2">
+          {project.title}
+        </h2>
+        
+        {/* Scrollable description with custom minimal scrollbar */}
+        <div className="mb-4 h-16 overflow-y-auto pr-2 scrollbar-minimal">
+          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+            {project.description}
+          </p>
+        </div>
         
         {/* Fixed height tech stack section */}
         <div className="h-20 mb-4 overflow-hidden">
           <div className="flex flex-wrap gap-2">
             {project.techStack.slice(0, 6).map((tech, index) => (
-              <span key={index} className="px-2 py-1 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 text-purple-700 dark:text-purple-300 text-xs rounded-full whitespace-nowrap">
+              <span 
+                key={index} 
+                className="px-2 py-1 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 text-purple-700 dark:text-purple-300 text-xs rounded-full whitespace-nowrap"
+              >
                 {tech}
               </span>
             ))}
